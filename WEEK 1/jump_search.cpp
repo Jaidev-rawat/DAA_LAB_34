@@ -18,14 +18,15 @@ int main()
     cin>>key;
     int pos=-1;
     int count =1;
-    int step=2;
+    float jump=sqrt(n);
+    int step=jump;
     int prev=0;
     
-    while(arr[(min(n,step))-1]<key)
+    while(arr[int(min(n,step))-1]<key)
     {
         count++;
         prev=step;
-        step=step*2;
+        step=step+jump;
         if(prev>=n)
         {
             pos=-1;
@@ -33,7 +34,7 @@ int main()
         }
     }
     count++;
-    while(arr[prev]<key)
+    while(arr[int(prev)]<key)
     {
         prev++;
         count++;
@@ -45,7 +46,7 @@ int main()
 
     }
     count++;
-    if(arr[prev]==key)
+    if(arr[int(prev)]==key)
     {
         pos=prev;
         
